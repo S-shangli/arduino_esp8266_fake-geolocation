@@ -118,18 +118,18 @@ void sendBeacon(char* ssid, uint8 ch, uint8* mac, float pwr) {
     packet[15] = packet[21] = mac[5];
 
     // set timestamp
-    packet[24] = (ts_us && 0x00000000000000ff) >> (0*8);
-    packet[25] = (ts_us && 0x000000000000ff00) >> (1*8);
-    packet[26] = (ts_us && 0x0000000000ff0000) >> (2*8);
-    packet[27] = (ts_us && 0x00000000ff000000) >> (3*8);
-    packet[28] = (ts_us && 0x000000ff00000000) >> (4*8);
-    packet[29] = (ts_us && 0x0000ff0000000000) >> (5*8);
-    packet[30] = (ts_us && 0x00ff000000000000) >> (6*8);
-    packet[31] = (ts_us && 0xff00000000000000) >> (7*8);
+    packet[24] = (ts_us & 0x00000000000000ff) >> (0*8);
+    packet[25] = (ts_us & 0x000000000000ff00) >> (1*8);
+    packet[26] = (ts_us & 0x0000000000ff0000) >> (2*8);
+    packet[27] = (ts_us & 0x00000000ff000000) >> (3*8);
+    packet[28] = (ts_us & 0x000000ff00000000) >> (4*8);
+    packet[29] = (ts_us & 0x0000ff0000000000) >> (5*8);
+    packet[30] = (ts_us & 0x00ff000000000000) >> (6*8);
+    packet[31] = (ts_us & 0xff00000000000000) >> (7*8);
 
     // set beacon interval
-    packet[32] = (beacon_interval_ms && 0x00ff) >> 0;
-    packet[33] = (beacon_interval_ms && 0xff00) >> 8;
+    packet[32] = (beacon_interval_ms & 0x00ff) >> 0;
+    packet[33] = (beacon_interval_ms & 0xff00) >> 8;
 
     // set channel
     packet[50 + ssidLen] = ch;
