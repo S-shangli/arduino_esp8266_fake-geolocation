@@ -30,5 +30,6 @@ Fake-GeoLocation for Arduino (ESP8266)
 <img alt="screenshot" src="https://raw.githubusercontent.com/S-shangli/arduino_esp8266_fake-geolocation/master/screenshot01.png" width="300px"/>
 
 # disclaimer
-* Use at your own risk
+* Use at your own risk.
 * It is often necessary to use it in a shield room.
+* for development, education, hobby.
